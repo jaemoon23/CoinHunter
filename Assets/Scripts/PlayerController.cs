@@ -6,7 +6,11 @@ public class PlayerController : MonoBehaviour
     public Rigidbody body;
     public float speed;
 
-    private int CoinCount = 0;
+    public static int CoinCount { get; set; }
+    private void Start()
+    {
+        CoinCount = 0;
+    }
 
     void Update()
     {
@@ -26,6 +30,10 @@ public class PlayerController : MonoBehaviour
     public void GameOver()
     {
         gameObject.SetActive(false);
+
+        GameObject gameManager = GameObject.FindWithTag("GameController");
+        var gm = gameManager.GetComponent<GameManager>();
+        gm.EndGame();
     }
 
     public void GetCoin()

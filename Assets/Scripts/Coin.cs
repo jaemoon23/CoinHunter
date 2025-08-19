@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Coin : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Coin : MonoBehaviour
         {
             var player = other.GetComponent<PlayerController>();
             player.GetCoin();
+            Destroy(gameObject);
 
         }
     }
