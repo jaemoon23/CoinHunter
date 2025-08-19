@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
             if (Input.GetKey(KeyCode.R))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                Time.timeScale = 1f;
             }
         }
     }
@@ -50,9 +51,9 @@ public class GameManager : MonoBehaviour
         {
             bsetScore = (PlayerController.CoinCount * 10) + surviveTime;
             PlayerPrefs.SetFloat("BestTime", bsetScore);
-            //PlayerPrefs.Save();
         }
 
         bestRecordText.text = $"Best Record: {Mathf.FloorToInt(bsetScore)}";
+        Time.timeScale = 0f;
     }
 }
